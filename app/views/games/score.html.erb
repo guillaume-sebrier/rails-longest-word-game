@@ -1,0 +1,12 @@
+<h1>Result</h1>
+<p><%= @phrase %></p>
+<% if @valid %>
+  <p><strong>Congratulations </strong><%= @attempt %> is a valid english word !</p>
+  <p><strong>Score =  <%= @score %> </strong></p>
+  <p><strong>Total Score =  <%= session[:score] %> </strong></p>
+<% elsif @english %>
+  <p>Sorry <strong><%= @attempt %> </strong>cannot be found in <%= @grid.split("").join(',')%> !</p>
+<% else %>
+  <p>Sorry <strong><%= @attempt %> </strong>is not a valid english word !</p>
+<% end %>
+<%= link_to 'Play Again', new_path  %>
